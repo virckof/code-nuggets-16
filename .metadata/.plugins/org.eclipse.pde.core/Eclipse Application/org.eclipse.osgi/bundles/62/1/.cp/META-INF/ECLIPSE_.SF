@@ -1,0 +1,114 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest: az0oucuos+LC7zxqXXKPlCbEjUo=
+Created-By: 1.6.0 (IBM Corporation)
+SHA1-Digest-Manifest-Main-Attributes: rn2TDcR/5ktcP0WbTiQA1ZCWaMY=
+
+Name: org/eclipse/acceleo/examples/internal/wizard/AbstractExampleWiza
+ rd$1.class
+SHA1-Digest: AwYE6izCARcB50BNXsklYJ7zZ1U=
+
+Name: org/eclipse/acceleo/examples/internal/wizard/AbstractExampleWiza
+ rd$2.class
+SHA1-Digest: KAXNWx3KfQ6P52Pf4jcLip744hg=
+
+Name: org/eclipse/acceleo/examples/internal/wizard/AbstractExampleWiza
+ rd$3.class
+SHA1-Digest: 6v+YBRiYMjfgW2OEJSkhVDuOJlg=
+
+Name: org/eclipse/acceleo/examples/internal/intro/ShowSampleAction.cla
+ ss
+SHA1-Digest: GtYSYSqXgqPoQss6T3YpGbQhegM=
+
+Name: plugin.properties
+SHA1-Digest: dcBiWPMvkIe4hVKfmdAF37H5/n8=
+
+Name: intro/images/generators.png
+SHA1-Digest: W03fiOcgzQ/UBF2zrdZGN/cMzzc=
+
+Name: examples/org.eclipse.acceleo.module.example.ecore2unittests.zip
+SHA1-Digest: XE8RfdUvlIY/XKdSMTpQA1M2s10=
+
+Name: intro/acceleo-samples.xml
+SHA1-Digest: hzUFD4g9iJLb+tCWrUkewOmNhNE=
+
+Name: org/eclipse/acceleo/examples/internal/AcceleoExamplesMessages.cl
+ ass
+SHA1-Digest: TbtB3SqAtS7WE3tCs0GhpjjFj3I=
+
+Name: intro/images/acceleo-logo.png
+SHA1-Digest: rZE04FTNIOuKdaX+Oi/92C1Kr5E=
+
+Name: org/eclipse/acceleo/examples/internal/acceleoexamplesmessages.pr
+ operties
+SHA1-Digest: 12cg73IrM2Qj4oh6O3vMLEaz4HY=
+
+Name: org/eclipse/acceleo/examples/internal/wizard/Ecore2UnitTestsExam
+ pleWizard.class
+SHA1-Digest: kioubSCsgZW7Smp9SufGdCMf/V0=
+
+Name: examples/org.eclipse.acceleo.module.example.ecore2python.ui.zip
+SHA1-Digest: hPtu3oJMrkovNfTQ1uHJJlBvUXc=
+
+Name: org/eclipse/acceleo/examples/internal/wizard/AbstractExampleWiza
+ rd$ProjectDescriptor.class
+SHA1-Digest: Hv4YunCrUiwZgBef0bbpYlOTCEE=
+
+Name: examples/org.eclipse.acceleo.module.example.uml2java.helios.ui.z
+ ip
+SHA1-Digest: gGiX2cDMJ2D5KZCF/hzTk5+loLw=
+
+Name: plugin.xml
+SHA1-Digest: Ah4/1BiLEayecUgFjWMf1w2iTMs=
+
+Name: intro/css/acceleo.properties
+SHA1-Digest: dRNSwRb3e2N+IIONJoeCfAWFsNM=
+
+Name: icons/default.gif
+SHA1-Digest: zZY9AtshoFZX06wyqitUfYS+aq8=
+
+Name: examples/org.eclipse.acceleo.module.example.uml2java.ui.zip
+SHA1-Digest: IMRUAK8TsYqfg0lnQdFibglJ6zU=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: SAqY+5ITAL0mkdYeijlSRhyIaZk=
+
+Name: examples/org.eclipse.acceleo.module.example.uml2java.zip
+SHA1-Digest: f+eBkFiOGXsNgGB6/6KMlUQ2EnE=
+
+Name: examples/org.eclipse.acceleo.module.example.uml2java.helios.zip
+SHA1-Digest: 0z6QOaWx9XgEApK34Igrx7uZRKo=
+
+Name: about.html
+SHA1-Digest: ZONjjNEQofS9XExxSxGrlLqh9As=
+
+Name: intro/images/tutorial.png
+SHA1-Digest: IvO63OXzInWLZvgPhu10NCSrmM8=
+
+Name: org/eclipse/acceleo/examples/internal/wizard/Ecore2PythonExample
+ Wizard.class
+SHA1-Digest: SyB6X3IdbuWTcTn7EvwhEk6m46o=
+
+Name: examples/org.eclipse.acceleo.module.example.ecore2python.zip
+SHA1-Digest: 2x/g8d6bXpM6hl9iA94saylwNi0=
+
+Name: build.properties
+SHA1-Digest: 4p5AcXCm4W4rJewjQXs6f0ow4Uc=
+
+Name: org/eclipse/acceleo/examples/internal/wizard/AbstractExampleWiza
+ rd.class
+SHA1-Digest: 4U2eXq8jj+6I7OPs8zXFMept6is=
+
+Name: org/eclipse/acceleo/examples/internal/wizard/Uml2JavaExampleWiza
+ rd.class
+SHA1-Digest: L9MEcaGN9ofVobODjfKZOJGjg2w=
+
+Name: intro/css/acceleo.css
+SHA1-Digest: KWg9EPaHwnjgWxlteyR6s0ddpps=
+
+Name: org/eclipse/acceleo/examples/internal/AcceleoExamplesPlugin.clas
+ s
+SHA1-Digest: ON13IfQ8NRjoYyaIhcoMS6xmeEI=
+
+Name: intro/images/tutorial_hov.png
+SHA1-Digest: PDF15LItOeD/0VDgAYar2uKbrwk=
+

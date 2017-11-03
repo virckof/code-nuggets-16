@@ -1,0 +1,3 @@
+INDEX VERSION 1.126+C:\Users\Victor\Desktop\nuggets\.metadata\.plugins\org.eclipse.jdt.core
+3504588700.index
+1466640717.index

@@ -1,0 +1,206 @@
+package edu.ca.ualberta.code.nuggets.dialogs;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Hashtable;
+
+import org.eclipse.jface.dialogs.IMessageProvider;
+import org.eclipse.jface.dialogs.TitleAreaDialog;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.ScrolledComposite;
+import org.eclipse.swt.events.ControlAdapter;
+import org.eclipse.swt.events.ControlEvent;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
+
+import edu.ca.ualberta.code.nuggets.data.ISnippetProvider;
+import edu.ca.ualberta.code.nuggets.data.Snippet;
+
+public class FindSnippetDialog  extends TitleAreaDialog {
+	
+	  private ISnippetProvider provider;
+	
+	  private Composite containerResults;
+	  
+	  private Composite containerSearch;
+	  
+	  private ScrolledComposite scroll;
+	  
+	  private Text txtSearch;
+
+
+	  public FindSnippetDialog(Shell parentShell, ISnippetProvider providerP) {
+	    super(parentShell);
+	    provider=providerP;
+	  }
+
+	  @Override
+	  public void create() {
+	    super.create();
+	    setTitle("Find Snippet");
+	    setMessage("Introduce tags separated by commas, and click search!", IMessageProvider.INFORMATION);
+	  }
+
+	  @Override
+	  protected Control createDialogArea(Composite parent) {
+	    
+		Composite area = (Composite) super.createDialogArea(parent);
+
+		//Search Bar
+		containerSearch = new Composite(area, SWT.NONE);
+	    containerSearch.setLayoutData(new GridData(GridData.FILL_BOTH));
+	    GridLayout layout = new GridLayout(3, false);
+	    containerSearch.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+	    containerSearch.setLayout(layout);
+	    
+	    
+	    //Results
+	    scroll = new ScrolledComposite(area, SWT.BORDER |SWT.V_SCROLL);
+	    containerResults = new Composite(scroll, SWT.NONE);
+	    containerResults.setSize(600, 400);
+	    containerResults.setLayoutData(new GridData(GridData.FILL_BOTH));
+	    GridLayout layoutResults = new GridLayout(1, false);
+	    containerResults.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false));
+	    containerResults.setLayout(layoutResults);
+	    scroll.setContent(containerResults);
+	    scroll.setExpandVertical(true);
+	    
+	    
+	
+	    //TEST
+	    ArrayList<Snippet> snippets = new ArrayList<>();
+	    Snippet s1 = new Snippet();
+	    s1.setSnippet("test test 1");
+
+	    Snippet s2 = new Snippet();
+	    s2.setSnippet("test test 2");
+	    
+	    //snippets.add(s1);
+	    //snippets.add(s2);
+	    
+	    createSearchBar(containerSearch, containerResults);
+	    createSnippets(containerResults, snippets);
+	    
+
+	    return area;
+	  }
+	  
+	  private void createSearchBar(Composite container, Composite results){
+		  Label lbInfo = new Label(container, SWT.NONE);
+		  lbInfo.setText("Tags:");
+		  
+		  GridData dataTags = new GridData();
+		  dataTags.grabExcessHorizontalSpace = true;
+		  dataTags.horizontalAlignment = GridData.FILL;
+		  txtSearch = new Text(container, SWT.BORDER);
+		  txtSearch.setLayoutData(dataTags);
+		  
+		  Button search = new Button (container, SWT.PUSH);
+		  search.setText ("Search");
+		  search.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					
+					addResults(txtSearch.getText());
+				}
+			});
+		  
+	  }
+
+	  private void createSnippets(Composite container, ArrayList<Snippet> results) {
+	    Label lbInfo = new Label(container, SWT.NONE);
+	    lbInfo.setText("Results:");
+
+	    for(Snippet result: results){
+	    	
+	    	GridData dataSnippet = new GridData();
+		    dataSnippet.grabExcessHorizontalSpace = true;
+		    dataSnippet.horizontalAlignment = GridData.FILL;
+		    final int heightHint = 100;
+		    dataSnippet.heightHint = heightHint;
+
+		    Text txtCode = new Text(container, SWT.MULTI | SWT.V_SCROLL);
+		    txtCode.setLayoutData(dataSnippet);
+		    txtCode.setText(result.getSnippet());
+		    
+		    Button insert = new Button (container, SWT.PUSH);
+		    insert.setText ("Insert");
+		    insert.addSelectionListener(new SelectionAdapter() {
+					@Override
+					public void widgetSelected(SelectionEvent e) {
+						System.out.println("Insert");
+						
+					}
+				});
+		    Button delete = new Button (container, SWT.PUSH);
+		    delete.setText ("Insert");
+		    delete.addSelectionListener(new SelectionAdapter() {
+					@Override
+					public void widgetSelected(SelectionEvent e) {
+						System.out.println("Delete");
+						
+					}
+				});
+	    }
+	    scroll.layout();
+	    containerResults.layout();
+	    
+	  }
+	  
+	  private void addResults(String rawTags){
+		  
+		  Hashtable<Integer, Snippet> added = new Hashtable<>();
+		  ArrayList<String> tags = extractTags(rawTags);
+		  for(String tag : tags){
+			  ArrayList<Snippet> resultList = provider.getSnippet(tag);
+			  for(Snippet s : resultList){
+				  if(added.get(s.getId())!=null){
+					  addSnippetView(s);
+					  added.put(s.getId(), s);
+				  }
+			  }
+			  
+		  }
+	  }
+	  
+	  private void addSnippetView(Snippet s){
+		  GridData dataSnippet = new GridData();
+		  dataSnippet.grabExcessHorizontalSpace = true;
+		  dataSnippet.horizontalAlignment = GridData.FILL;
+		  final int heightHint = 100;
+		  dataSnippet.heightHint = heightHint;
+
+		  Text txtCode = new Text(containerResults, SWT.MULTI | SWT.V_SCROLL);
+		  txtCode.setLayoutData(dataSnippet);
+		  txtCode.setText(s.getSnippet());
+		  containerSearch.layout();
+		  containerResults.layout();
+		  scroll.layout();
+	  }
+	  
+	  private ArrayList<String> extractTags(String tagsRaw){
+		  String []tags= tagsRaw.split(",");
+		  for(int i=0; i<tags.length;i++){
+			  String t = tags[i];			 
+			  tags[i]=t.trim();
+		  }
+		  ArrayList<String> tagsClean = new ArrayList<String>(Arrays.asList(tags));
+		  return tagsClean;
+	  }
+
+
+	  @Override
+	  protected boolean isResizable() {
+	    return false;
+	  }
+
+}

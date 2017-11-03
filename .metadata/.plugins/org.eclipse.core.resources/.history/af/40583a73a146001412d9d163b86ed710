@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Nuggets
+Bundle-SymbolicName: edu.ca.ualberta.code.nuggets;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: edu.ca.ualberta.code.nuggets.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.text
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

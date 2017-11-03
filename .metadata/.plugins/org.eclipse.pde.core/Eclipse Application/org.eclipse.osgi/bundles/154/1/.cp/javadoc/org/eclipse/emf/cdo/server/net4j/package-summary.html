@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+
+<TITLE>
+org.eclipse.emf.cdo.server.net4j (CDO Model Repository Documentation)
+</TITLE>
+
+<META NAME="date" CONTENT="">
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../../html/book.css" TITLE="Style">
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="org.eclipse.emf.cdo.server.net4j (CDO Model Repository Documentation)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Package</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-use.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../org/eclipse/emf/cdo/server/mongodb/package-summary.html"><B>PREV PACKAGE</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../org/eclipse/emf/cdo/server/objectivity/package-summary.html"><B>NEXT PACKAGE</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?org/eclipse/emf/cdo/server/net4j/package-summary.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="package-summary.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<H2>
+Package org.eclipse.emf.cdo.server.net4j
+</H2>
+<A NAME="package_description"><!-- --></A>
+Server concepts for dealing with Net4j-based repositories and fail-over infrastructure.
+
+<P>
+
+<map id="APIVIZ" name="APIVIZ">
+<area shape="rect" id="node1" href="FailoverAgent.Protocol.html" title="FailoverAgent.Protocol" alt="" coords="325,605,477,630"/>
+<area shape="rect" id="node2" href="FailoverMonitor.html" title="FailoverMonitor" alt="" coords="347,541,456,566"/>
+<area shape="rect" id="node3" href="FailoverMonitor.AgentProtocol.html" title="FailoverMonitor.AgentProtocol" alt="" coords="304,477,499,502"/>
+<area shape="rect" id="node4" href="FailoverMonitor.AgentProtocol.Factory.html" title="FailoverMonitor.AgentProtocol.Factory" alt="" coords="576,357,819,382"/>
+<area shape="rect" id="node5" href="FailoverMonitor.ClientProtocol.html" title="FailoverMonitor.ClientProtocol" alt="" coords="304,285,499,310"/>
+<area shape="rect" id="node6" href="FailoverMonitor.ClientProtocol.Factory.html" title="FailoverMonitor.ClientProtocol.Factory" alt="" coords="576,406,819,431"/>
+<area shape="rect" id="node7" href="FailoverMonitor.Factory.html" title="FailoverMonitor.Factory" alt="" coords="323,221,480,246"/>
+<area shape="rect" id="node8" title="HeartBeatProtocol (org.eclipse.net4j.signal.heartbeat)" alt="" coords="5,597,227,637"/>
+<area shape="rect" id="node9" title="HeartBeatProtocol.Server (org.eclipse.net4j.signal.heartbeat)" alt="" coords="5,469,227,509"/>
+<area shape="rect" id="node10" title="Lifecycle (org.eclipse.net4j.util.lifecycle)" alt="" coords="17,69,215,109"/>
+<area shape="rect" id="node11" title="SignalProtocol (org.eclipse.net4j.signal)" alt="" coords="35,277,197,317"/>
+<area shape="rect" id="node12" title="Container (org.eclipse.net4j.util.container)" alt="" coords="15,533,217,573"/>
+<area shape="rect" id="node13" title="Factory (org.eclipse.net4j.util.factory)" alt="" coords="21,213,211,253"/>
+<area shape="rect" id="node14" href="FailoverAgent.html" title="FailoverAgent" alt="" coords="351,113,452,138"/>
+<area shape="rect" id="node15" href="FailoverMonitor.AbstractServerProtocolFactory.html" title="FailoverMonitor.AbstractServerProtocolFactory" alt="" coords="256,381,547,406"/>
+<area shape="rect" id="node16" title="ServerProtocolFactory (org.eclipse.spi.net4j)" alt="" coords="41,341,191,381"/>
+<area shape="rect" id="node17" href="../../session/CDOSessionConfigurationFactory.html" title="&#171;interface&#187; CDOSessionConfigurationFactory (org.eclipse.emf.cdo.session)" alt="" coords="8,134,224,189"/>
+<area shape="rect" id="node18" href="FailoverMonitor.Provider.html" title="&#171;interface&#187; FailoverMonitor.Provider" alt="" coords="37,405,195,445"/>
+<area shape="rect" id="node19" href="CDONet4jServerUtil.html" title="&#171;static&#187; CDONet4jServerUtil" alt="" coords="49,5,183,45"/>
+</map>
+
+<CENTER><IMG SRC="package-summary.png" USEMAP="#APIVIZ" BORDER="0"></CENTER>
+<BR>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Interface Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.Provider.html" title="interface in org.eclipse.emf.cdo.server.net4j">FailoverMonitor.Provider</A></B></TD>
+<TD>Provides a <A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.html" title="class in org.eclipse.emf.cdo.server.net4j"><CODE>fail-over monitor</CODE></A> for a given named fail-over group.</TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/CDONet4jServerUtil.html" title="class in org.eclipse.emf.cdo.server.net4j">CDONet4jServerUtil</A></B></TD>
+<TD>Various static methods that may help with the server-side setup to support Net4j-specific CDO <A HREF="../../../../../../org/eclipse/emf/cdo/common/CDOCommonSession.html" title="interface in org.eclipse.emf.cdo.common"><CODE>sessions</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverAgent.html" title="class in org.eclipse.emf.cdo.server.net4j">FailoverAgent</A></B></TD>
+<TD>A repository-side agent for a <A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.html" title="class in org.eclipse.emf.cdo.server.net4j"><CODE>fail-over monitor</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverAgent.Protocol.html" title="class in org.eclipse.emf.cdo.server.net4j">FailoverAgent.Protocol</A></B></TD>
+<TD>The agent-side implementation of the <A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.html" title="class in org.eclipse.emf.cdo.server.net4j"><CODE>fail-over monitor</CODE></A> protocol.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.html" title="class in org.eclipse.emf.cdo.server.net4j">FailoverMonitor</A></B></TD>
+<TD>A facility for monitoring a variable set of <A HREF="../../../../../../org/eclipse/emf/cdo/spi/server/InternalFailoverParticipant.html" title="interface in org.eclipse.emf.cdo.spi.server"><CODE>fail-over participant</CODE></A> repositories and electing,
+ as well as promoting, a <A HREF="../../../../../../org/eclipse/emf/cdo/common/CDOCommonRepository.Type.html#MASTER"><CODE>master</CODE></A> repository among them.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.AbstractServerProtocolFactory.html" title="class in org.eclipse.emf.cdo.server.net4j">FailoverMonitor.AbstractServerProtocolFactory</A></B></TD>
+<TD>An abstract base class for the <A HREF="../../../../../../../../org.eclipse.net4j.doc/javadoc/org/eclipse/spi/net4j/ServerProtocolFactory.html?is-external=true" title="class or interface in org.eclipse.spi.net4j"><CODE>server-side protocol factories</CODE></A>
+ required by a <A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.html" title="class in org.eclipse.emf.cdo.server.net4j"><CODE>fail-over monitor</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.AgentProtocol.html" title="class in org.eclipse.emf.cdo.server.net4j">FailoverMonitor.AgentProtocol</A></B></TD>
+<TD>The monitor-side implementation of the <A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.html" title="class in org.eclipse.emf.cdo.server.net4j"><CODE>fail-over monitor</CODE></A> agent protocol.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.AgentProtocol.Factory.html" title="class in org.eclipse.emf.cdo.server.net4j">FailoverMonitor.AgentProtocol.Factory</A></B></TD>
+<TD>Creates <A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.AgentProtocol.html" title="class in org.eclipse.emf.cdo.server.net4j"><CODE>fail-over agent protocol</CODE></A> instances.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.ClientProtocol.html" title="class in org.eclipse.emf.cdo.server.net4j">FailoverMonitor.ClientProtocol</A></B></TD>
+<TD>The monitor-side implementation of the <A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.html" title="class in org.eclipse.emf.cdo.server.net4j"><CODE>fail-over monitor</CODE></A> client protocol.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.ClientProtocol.Factory.html" title="class in org.eclipse.emf.cdo.server.net4j">FailoverMonitor.ClientProtocol.Factory</A></B></TD>
+<TD>Creates <A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.ClientProtocol.html" title="class in org.eclipse.emf.cdo.server.net4j"><CODE>fail-over client protocol</CODE></A> instances.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD WIDTH="15%"><B><A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.Factory.html" title="class in org.eclipse.emf.cdo.server.net4j">FailoverMonitor.Factory</A></B></TD>
+<TD>Creates <A HREF="../../../../../../org/eclipse/emf/cdo/server/net4j/FailoverMonitor.html" title="class in org.eclipse.emf.cdo.server.net4j"><CODE>fail-over monitor</CODE></A> instances.</TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P>
+<P>
+
+<P>
+<DL>
+</DL>
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Package</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-use.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../org/eclipse/emf/cdo/server/mongodb/package-summary.html"><B>PREV PACKAGE</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../org/eclipse/emf/cdo/server/objectivity/package-summary.html"><B>NEXT PACKAGE</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?org/eclipse/emf/cdo/server/net4j/package-summary.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="package-summary.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+<i>Copyright (c) 2011, 2012 Eike Stepper (Berlin, Germany) and others.</i>
+</BODY>
+</HTML>

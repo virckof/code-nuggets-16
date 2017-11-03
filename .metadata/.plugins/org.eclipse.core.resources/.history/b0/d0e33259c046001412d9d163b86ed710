@@ -1,0 +1,14 @@
+package edu.ca.ualberta.code.nuggets.data;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Snippet implements Serializable {
+	
+	private ArrayList<String> tags;
+	
+	private String snippet;
+	
+	
+
+}

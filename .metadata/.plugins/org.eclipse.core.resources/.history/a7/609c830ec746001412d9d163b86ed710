@@ -1,0 +1,163 @@
+package edu.ca.ualberta.code.nuggets.data;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Iterator;
+
+public class SnippetProvider implements ISnippetProvider{
+
+	public final static String INDEX_FILE = "./snippets.data";
+	private Hashtable<String, ArrayList<Snippet>> snippets;
+	
+	private int lastId=0;
+	
+	public SnippetProvider(){
+		snippets = loadSnippets();
+		
+		if(snippets==null){
+			snippets = new Hashtable<>();
+		}
+	}
+	
+	@Override
+	public ArrayList<Snippet> getSnippet(String tag) {
+		
+		return snippets.get(tag);
+	}
+
+	@Override
+	public void saveSnippet(String code, ArrayList<String> tags) {
+		
+		Snippet s= new Snippet();
+		s.setId(lastId);
+		s.setSnippet(code);
+		s.setTags(tags);
+		
+		for(String tag : tags){
+			ArrayList<Snippet> tt= snippets.get(tag);
+			if(tt == null){
+				ArrayList<Snippet> newTag = new ArrayList<>();
+				
+				newTag.add(s);
+				snippets.put(tag,newTag);
+			}
+			else{
+				tt.add(s);
+				snippets.remove(tag);
+				snippets.put(tag, tt);
+			}
+		}
+		saveSnippets();
+		lastId++;
+	}
+	
+	public void deleteSnippet(int id){
+		Iterator<String> tags = snippets.keySet().iterator();
+		boolean found=false;
+		while(tags.hasNext()){
+			String ct = tags.next();
+			ArrayList<Snippet> tt= snippets.get(ct);
+			for(int i=0; i<tt.size();i++){
+				if(tt.get(i).getId()==id){
+					tt.remove(i);
+					found = true;
+					break;
+				}
+			}
+			// The snippet was found in that tag, updating the index.
+			if(found){
+				snippets.remove(ct);
+				snippets.put(ct, tt);
+				found=false;
+			}	
+		}
+		saveSnippets();
+	}
+	
+	private void saveSnippets(){
+		try {
+			FileOutputStream fos = new FileOutputStream(INDEX_FILE);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(snippets);
+			fos.close();
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	private Hashtable<String, ArrayList<Snippet>>  loadSnippets(){
+		Hashtable<String, ArrayList<Snippet>> index = new Hashtable<>();
+
+		try {
+			FileInputStream fis = new FileInputStream(INDEX_FILE);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+
+			index = (Hashtable<String, ArrayList<Snippet>>) ois.readObject();
+			ois.close();
+
+		} catch (Exception e) {
+			//Silent
+		} 
+		
+		return index;
+	}
+	
+	private void loadLastID(){
+		
+	}
+	
+	private void saveLastID(){
+		
+	}
+	
+	
+	public void printTable(){
+		Iterator<String> tags = snippets.keySet().iterator();
+		boolean found=false;
+		while(tags.hasNext()){
+			String ct = tags.next();
+			System.out.println("tag: "+ct);
+			ArrayList<Snippet> tt= snippets.get(ct);
+			for(int i=0; i<tt.size();i++){
+				System.out.println(tt.get(i));	
+			}
+		
+		}
+
+	}
+	
+	private void test(){
+		
+		String tag1="test1";
+		String tag2="test2";
+		String tag3="test3";
+		
+		ArrayList<String> tags = new ArrayList<>();
+		tags.add(tag1);
+		tags.add(tag2);
+		
+		ArrayList<String> tags2 = new ArrayList<>();
+		tags2.add(tag2);
+		tags2.add(tag3);
+		
+
+		saveSnippet("<code1>", tags);
+		
+		saveSnippet("<code2>", tags2);
+		
+		printTable();
+	}
+	
+	
+	public static void main(String...args){
+		SnippetProvider sp = new SnippetProvider();
+		sp.test();
+	}
+	
+}

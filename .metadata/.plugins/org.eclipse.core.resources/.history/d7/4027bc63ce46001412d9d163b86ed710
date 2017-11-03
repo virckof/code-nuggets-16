@@ -1,0 +1,229 @@
+package edu.ca.ualberta.code.nuggets.data;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Iterator;
+
+public class SerialSnippetProvider implements ISnippetProvider{
+
+	/**
+	 * File where the snippets are saved
+	 */
+	public final static String INDEX_FILE = "./snippets.data";
+	
+	/**
+	 * File where the last id is stored.
+	 */
+	public final static String ID_FILE = "./snippets.id";
+	
+	/**
+	 * Master index of snippets. Key=tag
+	 */
+	private Hashtable<String, ArrayList<Snippet>> snippets;
+	
+	/**
+	 * Last id counter. Autoincrement.
+	 */
+	private int lastId;
+	
+	
+	/**
+	 * Constructor, loads the snippets and last id. Defaults otherwise.
+	 */
+	public SerialSnippetProvider(){
+		snippets = loadSnippets();
+		lastId = loadLastID();
+		
+		if(snippets==null){
+			snippets = new Hashtable<>();
+		}
+	}
+	
+	
+	/**
+	 * Returns a list of snippets taged with the given tag.
+	 */
+	@Override
+	public ArrayList<Snippet> getSnippet(String tag) {
+		
+		return snippets.get(tag);
+	}
+
+	/**
+	 * Saves a snippet in the master index, duplicates per tag.
+	 */
+	@Override
+	public void saveSnippet(String code, ArrayList<String> tags) {
+		
+		Snippet s= new Snippet();
+		s.setId(lastId);
+		s.setSnippet(code);
+		s.setTags(tags);
+		
+		for(String tag : tags){
+			ArrayList<Snippet> tt= snippets.get(tag);
+			if(tt == null){
+				ArrayList<Snippet> newTag = new ArrayList<>();
+				
+				newTag.add(s);
+				snippets.put(tag,newTag);
+			}
+			else{
+				tt.add(s);
+				snippets.remove(tag);
+				snippets.put(tag, tt);
+			}
+		}
+		lastId++;
+		saveSnippets();
+		saveLastID();
+		
+	}
+	
+	
+	/**
+	 * Deletes a snippet given an snippet id.
+	 */
+	public void deleteSnippet(int id){
+		Iterator<String> tags = snippets.keySet().iterator();
+		boolean found=false;
+		while(tags.hasNext()){
+			String ct = tags.next();
+			ArrayList<Snippet> tt= snippets.get(ct);
+			for(int i=0; i<tt.size();i++){
+				if(tt.get(i).getId()==id){
+					tt.remove(i);
+					found = true;
+					break;
+				}
+			}
+			
+		}
+		saveSnippets();
+		saveLastID();
+	}
+	
+	/**
+	 * Dumps the snippets into the index file.
+	 */
+	private void saveSnippets(){
+		try {
+			FileOutputStream fos = new FileOutputStream(INDEX_FILE);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(snippets);
+			fos.close();
+		} 
+		catch (Exception e) {
+			//silent
+		}
+		printTable();
+	}
+	
+	/**
+	 * Loads the index from the index file.
+	 */
+	private Hashtable<String, ArrayList<Snippet>>  loadSnippets(){
+		Hashtable<String, ArrayList<Snippet>> index = new Hashtable<>();
+
+		try {
+			FileInputStream fis = new FileInputStream(INDEX_FILE);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+
+			index = (Hashtable<String, ArrayList<Snippet>>) ois.readObject();
+			ois.close();
+
+		} catch (Exception e) {
+			//Silent
+		} 
+		
+		return index;
+	}
+	
+	/**
+	 * Loads the last id assigned from the id file.
+	 */
+	private int loadLastID(){
+		
+		int id=0;
+		try {
+			FileInputStream fis = new FileInputStream(ID_FILE);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+
+			id = (Integer) ois.readObject();
+			ois.close();
+
+		} catch (Exception e) {
+			//Silent
+		} 
+		return id;
+	}
+	
+	/**
+	 * Dumps the last id into the id file.
+	 */
+	private void saveLastID(){
+		try {
+			FileOutputStream fos = new FileOutputStream(ID_FILE);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(lastId);
+			fos.close();
+		} 
+		catch (Exception e) {
+			//Silent
+		}
+	}
+	
+	
+	/**
+	 * Test Method: Prints the Master Index.
+	 */
+	public void printTable(){
+		Iterator<String> tags = snippets.keySet().iterator();
+		while(tags.hasNext()){
+			String ct = tags.next();
+			System.out.println("tag: "+ct);
+			ArrayList<Snippet> tt= snippets.get(ct);
+			for(int i=0; i<tt.size();i++){
+				System.out.println(tt.get(i));	
+			}	
+		}
+	}
+	
+	private void test(){
+		
+		String tag1="test1";
+		String tag2="test2";
+		String tag3="test3";
+		
+		ArrayList<String> tags = new ArrayList<>();
+		tags.add(tag1);
+		tags.add(tag2);
+		
+		ArrayList<String> tags2 = new ArrayList<>();
+		tags2.add(tag2);
+		tags2.add(tag3);
+		
+
+		saveSnippet("<code1>", tags);
+		
+		saveSnippet("<code2>", tags2);
+		deleteSnippet(1);
+		
+		System.out.println("result:"+getSnippet("test2"));
+		
+		deleteSnippet(1);
+		
+		printTable();
+	}
+	
+	
+	public static void main(String...args){
+		SerialSnippetProvider sp = new SerialSnippetProvider();
+		sp.test();
+	}
+	
+}

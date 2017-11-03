@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="edu.ca.ualberta.code.nuggets.NuggetView"
+            id="edu.ca.ualberta.code.nuggets.nuggetview"
+            name="Code Nugget View"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="edu.ca.ualberta.code.nuggets.menu"
+            label="Nuggets">
+      </actionSet>
+   </extension>
+
+</plugin>

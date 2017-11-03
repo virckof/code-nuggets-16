@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<bundle bundleID="1133" class="edu.ca.ualberta.code.nuggets.Activator" localization="OSGI-INF/l10n/bundle" name="Nuggets" project="edu.ca.ualberta.code.nuggets"/>
+</map>

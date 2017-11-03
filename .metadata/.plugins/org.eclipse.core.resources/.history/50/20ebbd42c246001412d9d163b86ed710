@@ -1,0 +1,11 @@
+package edu.ca.ualberta.code.nuggets.data;
+
+import java.util.ArrayList;
+
+public interface ISnippetProvider {
+	
+	public ArrayList<Snippet> getSnippet(String tag);
+	
+	public void saveSnippet(Snippet s, ArrayList<String> tags);
+
+}

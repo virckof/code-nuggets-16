@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension point="org.eclipse.ui.views">
+      <view
+            class="edu.ca.ualberta.code.nuggets.views.NuggetView"
+            id="edu.ca.ualberta.code.nuggets.nuggetview"
+            name="Code Nugget Preview"/>
+   </extension>
+   
+
+   
+   <extension point="org.eclipse.ui.commands">
+     <command
+           defaultHandler="edu.ca.ualberta.code.nuggets.commands.OpenSearchDialogCommand"
+           id="edu.ca.ualberta.code.nuggets.commands.openSearchDialog"
+           name="OpenSearchDialog"/>
+     <command
+           defaultHandler="edu.ca.ualberta.code.nuggets.commands.SearchByContextCommand"
+           id="edu.ca.ualberta.code.nuggets.commands.searchByMethodContext"
+           name="SearchByMethodContext">
+     </command>
+     <command
+           defaultHandler="edu.ca.ualberta.code.nuggets.commands.InitializeServerCommand"
+           id="edu.ca.ualberta.code.nuggets.commands.initializeServer"
+           name="InitializeServer">
+     </command>
+  </extension>
+  
+ 
+ <extension point="org.eclipse.ui.bindings">
+     <key
+           commandId="edu.ca.ualberta.code.nuggets.commands.searchByMethodContext"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+           sequence="M1+1"/>
+  </extension>
+  
+     <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="codeNuggetsID"
+               label="Code Nuggets">
+            <command
+                  commandId="edu.ca.ualberta.code.nuggets.commands.openSearchDialog"
+                  icon="icons/search.png"
+                  label="Search"
+                  style="push">
+            </command>
+            <command
+                  commandId="edu.ca.ualberta.code.nuggets.commands.initializeServer"
+                  icon="icons/inter.jpg"
+                  label="Initialize Interactions Server"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>
