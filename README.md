@@ -1,1 +1,9 @@
-# code-nuggets-16
+# Code Nuggets 2016
+
+CodeNuggets is an experimental (lunch break) project that I've worked during 2015-16. CodeNuggets is an eclipse plugin that gives developers quick and contextual access to Github Gist.  Gist is an online platform created by Github to share snippets and pastes among developers. All gists are Git repositories, so they are automatically versioned, forkable and usable from Git. Currently more than 10 millions of gists, written in all the imaginable programming and scripting languages, are accessible from the Gist website https://gist.github.com/search.
+
+CodeNuggets is an eclipse plugin that allows developers to search and insert code snippets available in Gist directly from Eclipse.  The motivation behind of CodeNuggets stems from the fact that developers access online code repositories, and question and answer platforms such as StackOverflow, as a fundamental step in their normal coding and problem solving workflow. More often than not, developers look for coding recipes that  help them to solve complex problems. From how how to dump information into a file, to how to consume REST services or even implement sorting algorithms, developers constantly look for resources online that help them to understand the operational mechanics of frameworks, libraries, or any other development artifact to achieve a greater development goal. 
+
+ CodeNuggets helps developers to find code snippets from inside of their development environment. The plugin takes advantage of the developer's imported projects and open resources, to identify the environment context, and uses static program analysis to identify API usage statements, and function naming semantics, in order to pivot its search function. Furthermore,  CodeNuggets takes advantage of the social nature of Github (in which developers have followers and shared repositories can be starred) in order to optionally prioritize code snippets according to their author social centrality. 
+ 
+ A full website for the project (including a video demo) can be found at http://victorguana.blogspot.ca/2015/05/code-nuggets-teaser.html
